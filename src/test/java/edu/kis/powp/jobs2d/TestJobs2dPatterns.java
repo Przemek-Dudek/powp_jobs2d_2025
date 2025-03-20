@@ -20,13 +20,14 @@ public class TestJobs2dPatterns {
 	private final static Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 
 	private static void setupPresetTests(Application application) {
-		SelectTestFigureOptionListener selectTestFigureOptionListener = new SelectTestFigureOptionListener(
-				DriverFeature.getDriverManager(), TestFigure.FIGURE_JOE_1);
-		SelectTestFigureOptionListener selectTestFigureOptionListener2 = new SelectTestFigureOptionListener(
-				DriverFeature.getDriverManager(), TestFigure.FIGURE_JOE_2);
-
-		application.addTest("Figure Joe 1", selectTestFigureOptionListener);
-		application.addTest("Figure Joe 2", selectTestFigureOptionListener2);
+		application.addTest("Figure Joe 1", new SelectTestFigureOptionListener(
+				DriverFeature.getDriverManager(), TestFigure.FIGURE_JOE_1));
+		application.addTest("Figure Joe 2", new SelectTestFigureOptionListener(
+				DriverFeature.getDriverManager(), TestFigure.FIGURE_JOE_2));
+		application.addTest("Rectangle", new SelectTestFigureOptionListener(
+				DriverFeature.getDriverManager(), TestFigure.RECTANGLE));
+		application.addTest("Circle", new SelectTestFigureOptionListener(
+				DriverFeature.getDriverManager(), TestFigure.CIRCLE));
 	}
 
 	private static void setupDrivers(Application application) {
@@ -80,3 +81,4 @@ public class TestJobs2dPatterns {
 		});
 	}
 }
+
